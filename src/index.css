@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+/* 클래스 기반 다크모드: <html class="dark">일 때 dark: 유틸리티가 적용되도록 설정 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-100;
+}
