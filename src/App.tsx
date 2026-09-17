@@ -18,7 +18,7 @@ export default function App() {
   return (
     <div className="min-h-full">
       <NavBar active={view} onChange={setView} />
-      <main className="mx-auto max-w-4xl px-4 py-8">
+      <main className="mx-auto max-w-4xl px-6 py-12">
         {view === 'dashboard' && <Dashboard />}
         {view === 'study' && <StudyView />}
         {view === 'quiz' && <QuizView />}

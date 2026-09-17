@@ -3,9 +3,9 @@ import { WeeklyBarChart } from './WeeklyBarChart'
 
 function StatTile({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4 text-center dark:border-slate-800 dark:bg-slate-800">
-      <p className="text-2xl font-bold text-sky-600 dark:text-sky-400">{value}</p>
-      <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{label}</p>
+    <div className="flex flex-col gap-1 px-6 py-2 first:pl-0">
+      <p className="text-3xl font-semibold tracking-tight">{value}</p>
+      <p className="text-sm text-zinc-500 dark:text-zinc-400">{label}</p>
     </div>
   )
 }
@@ -21,16 +21,14 @@ export function Dashboard() {
   const weeklyLog = getLast7DaysLog()
 
   return (
-    <div className="mx-auto flex max-w-3xl flex-col gap-6">
-      <div className="grid grid-cols-3 gap-3">
+    <div className="mx-auto flex max-w-3xl flex-col gap-10">
+      <div className="grid grid-cols-3 divide-x divide-zinc-200 dark:divide-zinc-800">
         <StatTile label="오늘 학습한 카드" value={todayCount} />
         <StatTile label="전체 단어 수" value={cards.length} />
         <StatTile label="복습 예정 카드" value={dueCount} />
       </div>
 
-      <div className="rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-800">
-        <WeeklyBarChart data={weeklyLog} />
-      </div>
+      <WeeklyBarChart data={weeklyLog} />
     </div>
   )
 }

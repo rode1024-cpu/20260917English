@@ -9,6 +9,9 @@ const EMPTY_FORM: NewWordCardInput = {
   exampleTranslation: '',
 }
 
+const inputClassName =
+  'rounded-md border border-zinc-300 bg-transparent px-3 py-2 focus:border-zinc-500 focus:outline-none dark:border-zinc-700'
+
 function CardForm({
   initial,
   onSubmit,
@@ -27,43 +30,46 @@ function CardForm({
         if (!form.word.trim() || !form.meaning.trim()) return
         onSubmit(form)
       }}
-      className="grid grid-cols-1 gap-2 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-800 sm:grid-cols-2"
+      className="grid grid-cols-1 gap-3 rounded-lg border border-zinc-200 p-6 dark:border-zinc-800 sm:grid-cols-2"
     >
       <input
         value={form.word}
         onChange={(e) => setForm({ ...form, word: e.target.value })}
         placeholder="단어 (예: achieve)"
         required
-        className="rounded-md border border-slate-300 px-3 py-2 dark:border-slate-600 dark:bg-slate-900"
+        className={inputClassName}
       />
       <input
         value={form.meaning}
         onChange={(e) => setForm({ ...form, meaning: e.target.value })}
         placeholder="뜻 (예: 성취하다)"
         required
-        className="rounded-md border border-slate-300 px-3 py-2 dark:border-slate-600 dark:bg-slate-900"
+        className={inputClassName}
       />
       <input
         value={form.exampleSentence}
         onChange={(e) => setForm({ ...form, exampleSentence: e.target.value })}
         placeholder="예문 (영어)"
-        className="rounded-md border border-slate-300 px-3 py-2 dark:border-slate-600 dark:bg-slate-900 sm:col-span-2"
+        className={`${inputClassName} sm:col-span-2`}
       />
       <input
         value={form.exampleTranslation}
         onChange={(e) => setForm({ ...form, exampleTranslation: e.target.value })}
         placeholder="예문 번역 (한글)"
-        className="rounded-md border border-slate-300 px-3 py-2 dark:border-slate-600 dark:bg-slate-900 sm:col-span-2"
+        className={`${inputClassName} sm:col-span-2`}
       />
       <div className="flex gap-2 sm:col-span-2">
-        <button type="submit" className="rounded-md bg-sky-600 px-4 py-2 font-semibold text-white hover:bg-sky-700">
+        <button
+          type="submit"
+          className="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+        >
           저장
         </button>
         {onCancel && (
           <button
             type="button"
             onClick={onCancel}
-            className="rounded-md border border-slate-300 px-4 py-2 dark:border-slate-600"
+            className="rounded-md border border-zinc-300 px-4 py-2 text-sm dark:border-zinc-700"
           >
             취소
           </button>
@@ -82,7 +88,7 @@ export function CardManager() {
   const [showAddForm, setShowAddForm] = useState(false)
 
   return (
-    <div className="mx-auto flex max-w-3xl flex-col gap-4">
+    <div className="mx-auto flex max-w-3xl flex-col gap-6">
       {showAddForm ? (
         <CardForm
           initial={EMPTY_FORM}
@@ -96,16 +102,16 @@ export function CardManager() {
         <button
           type="button"
           onClick={() => setShowAddForm(true)}
-          className="rounded-md bg-sky-600 px-4 py-2 font-semibold text-white hover:bg-sky-700"
+          className="self-start rounded-md border border-zinc-300 px-4 py-2 text-sm font-medium hover:bg-zinc-50 dark:border-zinc-700 dark:hover:bg-zinc-900"
         >
           + 새 단어 추가
         </button>
       )}
 
-      <ul className="flex flex-col gap-2">
+      <ul className="flex flex-col divide-y divide-zinc-200 dark:divide-zinc-800">
         {cards.map((card: WordCard) =>
           editingId === card.id ? (
-            <li key={card.id}>
+            <li key={card.id} className="py-3 first:pt-0">
               <CardForm
                 initial={card}
                 onCancel={() => setEditingId(null)}
@@ -116,28 +122,25 @@ export function CardManager() {
               />
             </li>
           ) : (
-            <li
-              key={card.id}
-              className="flex items-center justify-between gap-3 rounded-md border border-slate-200 bg-white px-4 py-3 dark:border-slate-800 dark:bg-slate-800"
-            >
+            <li key={card.id} className="flex items-center justify-between gap-3 py-3 first:pt-0">
               <div>
-                <p className="font-semibold">
-                  {card.word} <span className="font-normal text-slate-500">- {card.meaning}</span>
+                <p className="font-medium">
+                  {card.word} <span className="font-normal text-zinc-500 dark:text-zinc-400">- {card.meaning}</span>
                 </p>
-                <p className="text-sm text-slate-400">{card.exampleSentence}</p>
+                <p className="text-sm text-zinc-400 dark:text-zinc-500">{card.exampleSentence}</p>
               </div>
               <div className="flex shrink-0 gap-2">
                 <button
                   type="button"
                   onClick={() => setEditingId(card.id)}
-                  className="rounded-md border border-slate-300 px-3 py-1 text-sm dark:border-slate-600"
+                  className="rounded-md px-3 py-1 text-sm text-zinc-500 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-900"
                 >
                   수정
                 </button>
                 <button
                   type="button"
                   onClick={() => deleteCard(card.id)}
-                  className="rounded-md border border-rose-300 px-3 py-1 text-sm text-rose-600 dark:border-rose-700"
+                  className="rounded-md px-3 py-1 text-sm text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950"
                 >
                   삭제
                 </button>

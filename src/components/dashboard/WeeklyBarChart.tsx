@@ -18,21 +18,21 @@ export function WeeklyBarChart({ data }: WeeklyBarChartProps) {
 
   return (
     <div>
-      <h3 className="mb-3 text-sm font-semibold text-slate-500 dark:text-slate-400">최근 7일 학습량</h3>
-      <div className="flex h-40 items-end justify-between gap-2">
+      <h3 className="mb-6 text-sm text-zinc-500 dark:text-zinc-400">최근 7일 학습량</h3>
+      <div className="flex h-32 items-end justify-between gap-3">
         {data.map((entry) => {
           const heightPct = (entry.count / maxCount) * 100
           return (
-            <div key={entry.date} className="flex flex-1 flex-col items-center gap-1">
-              <span className="text-xs text-slate-500 dark:text-slate-400">{entry.count || ''}</span>
-              <div className="flex h-28 w-full items-end">
+            <div key={entry.date} className="flex flex-1 flex-col items-center gap-2">
+              <span className="text-xs text-zinc-400 dark:text-zinc-500">{entry.count || ''}</span>
+              <div className="flex h-24 w-full items-end">
                 <div
-                  className="w-full rounded-t-sm bg-sky-500 transition-[height] dark:bg-sky-400"
-                  style={{ height: `${entry.count > 0 ? Math.max(heightPct, 6) : 2}%` }}
+                  className="w-full rounded-sm bg-zinc-900 transition-[height] dark:bg-zinc-100"
+                  style={{ height: `${entry.count > 0 ? Math.max(heightPct, 6) : 0}%` }}
                   title={`${entry.date}: ${entry.count}개`}
                 />
               </div>
-              <span className="text-xs text-slate-400">{formatDayLabel(entry.date)}</span>
+              <span className="text-xs text-zinc-400 dark:text-zinc-500">{formatDayLabel(entry.date)}</span>
             </div>
           )
         })}

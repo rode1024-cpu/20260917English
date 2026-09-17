@@ -19,19 +19,19 @@ export function NavBar({ active, onChange }: NavBarProps) {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
-      <div className="mx-auto flex max-w-4xl items-center justify-between gap-2 px-4 py-3">
-        <span className="text-lg font-bold text-sky-600 dark:text-sky-400">VocaLoop</span>
-        <nav className="flex flex-wrap gap-1">
+    <header className="border-b border-zinc-200 dark:border-zinc-800">
+      <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 px-6 py-4">
+        <span className="text-base font-semibold tracking-tight">VocaLoop</span>
+        <nav className="flex flex-1 items-center gap-6 overflow-x-auto">
           {TABS.map((tab) => (
             <button
               key={tab.key}
               type="button"
               onClick={() => onChange(tab.key)}
-              className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+              className={`shrink-0 border-b-2 py-1 text-sm transition-colors ${
                 active === tab.key
-                  ? 'bg-sky-600 text-white'
-                  : 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                  ? 'border-zinc-900 font-medium text-zinc-900 dark:border-zinc-100 dark:text-zinc-100'
+                  : 'border-transparent text-zinc-400 hover:text-zinc-700 dark:text-zinc-500 dark:hover:text-zinc-300'
               }`}
             >
               {tab.label}
@@ -42,7 +42,7 @@ export function NavBar({ active, onChange }: NavBarProps) {
           type="button"
           onClick={toggleTheme}
           aria-label="다크모드 전환"
-          className="rounded-md border border-slate-200 px-2 py-1.5 text-sm dark:border-slate-700"
+          className="shrink-0 rounded-md p-1.5 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-700 dark:text-zinc-500 dark:hover:bg-zinc-900 dark:hover:text-zinc-300"
         >
           {theme === 'dark' ? '🌙' : '☀️'}
         </button>
