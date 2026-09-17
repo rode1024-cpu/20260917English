@@ -14,6 +14,7 @@ interface CardStoreState {
   getDueCards: () => WordCard[]
   reviewCard: (id: string, grade: ReviewGrade) => void
   addCard: (input: NewWordCardInput) => void
+  addCards: (inputs: NewWordCardInput[]) => void
   updateCard: (id: string, input: NewWordCardInput) => void
   deleteCard: (id: string) => void
   getTodayStudiedCount: () => number
@@ -78,6 +79,21 @@ export const useCardStore = create<CardStoreState>((set, get) => ({
       createdAt: today,
     }
     const nextCards = [...cards, newCard]
+    storage.saveCards(nextCards)
+    set({ cards: nextCards })
+  },
+
+  addCards: (inputs) => {
+    if (inputs.length === 0) return
+    const { cards, storage } = get()
+    const today = todayKey()
+    const newCards: WordCard[] = inputs.map((input) => ({
+      id: crypto.randomUUID(),
+      ...input,
+      ...createInitialSm2State(today),
+      createdAt: today,
+    }))
+    const nextCards = [...cards, ...newCards]
     storage.saveCards(nextCards)
     set({ cards: nextCards })
   },

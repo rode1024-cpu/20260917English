@@ -3,6 +3,7 @@ import { NavBar, type ViewKey } from './components/NavBar'
 import { Dashboard } from './components/dashboard/Dashboard'
 import { StudyView } from './components/study/StudyView'
 import { QuizView } from './components/quiz/QuizView'
+import { CurriculumGenerator } from './components/curriculum/CurriculumGenerator'
 import { CardManager } from './components/manage/CardManager'
 import { DataIO } from './components/settings/DataIO'
 import { useCardStore } from './store/useCardStore'
@@ -22,6 +23,7 @@ export default function App() {
         {view === 'dashboard' && <Dashboard />}
         {view === 'study' && <StudyView />}
         {view === 'quiz' && <QuizView />}
+        {view === 'curriculum' && <CurriculumGenerator />}
         {view === 'manage' && <CardManager />}
         {view === 'settings' && <DataIO />}
       </main>

@@ -1,11 +1,12 @@
 import { useTheme } from '../hooks/useTheme'
 
-export type ViewKey = 'dashboard' | 'study' | 'quiz' | 'manage' | 'settings'
+export type ViewKey = 'dashboard' | 'study' | 'quiz' | 'curriculum' | 'manage' | 'settings'
 
 const TABS: { key: ViewKey; label: string }[] = [
   { key: 'dashboard', label: '대시보드' },
   { key: 'study', label: '학습' },
   { key: 'quiz', label: '퀴즈' },
+  { key: 'curriculum', label: 'AI 커리큘럼' },
   { key: 'manage', label: '단어 관리' },
   { key: 'settings', label: '설정' },
 ]
