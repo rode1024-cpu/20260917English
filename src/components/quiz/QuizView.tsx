@@ -68,7 +68,7 @@ export function QuizView() {
 
   if (phase === 'idle') {
     return (
-      <div className="mx-auto max-w-md py-16 text-center">
+      <div className="mx-auto max-w-md rounded-lg border border-zinc-200 bg-white p-10 text-center shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
         <p className="mb-6 text-zinc-500 dark:text-zinc-400">
           예문 빈칸 채우기와 뜻 객관식 문제를 무작위로 풀어보세요.
         </p>
@@ -86,7 +86,7 @@ export function QuizView() {
   if (phase === 'finished') {
     const correctCount = results.filter((r) => r.isCorrect).length
     return (
-      <div className="mx-auto flex max-w-md flex-col gap-6">
+      <div className="mx-auto flex max-w-md flex-col gap-6 rounded-lg border border-zinc-200 bg-white p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
         <div className="text-center">
           <p className="text-3xl font-semibold tracking-tight">
             {correctCount} / {results.length}
@@ -124,7 +124,7 @@ export function QuizView() {
         문제 {index + 1} / {questions.length}
       </p>
 
-      <div className="rounded-lg border border-zinc-200 p-8 dark:border-zinc-800">
+      <div className="rounded-lg border border-zinc-200 bg-white p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
         {currentQuestion.type === 'fill-blank' ? (
           <>
             <p className="mb-1 text-lg">{currentQuestion.sentenceWithBlank}</p>

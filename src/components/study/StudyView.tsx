@@ -80,7 +80,7 @@ export function StudyView() {
 
   if (!currentCard) {
     return (
-      <div className="mx-auto max-w-md py-16 text-center">
+      <div className="mx-auto max-w-md rounded-lg border border-zinc-200 bg-white p-10 text-center shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
         <p className="text-lg font-medium">오늘 복습할 카드가 없습니다</p>
         <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
           내일 다시 방문해서 예정된 카드를 복습해 보세요.

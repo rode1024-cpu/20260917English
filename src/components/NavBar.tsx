@@ -19,7 +19,7 @@ export function NavBar({ active, onChange }: NavBarProps) {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <header className="border-b border-zinc-200 dark:border-zinc-800">
+    <header className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
       <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 px-6 py-4">
         <span className="text-base font-semibold tracking-tight">VocaLoop</span>
         <nav className="flex flex-1 items-center gap-6 overflow-x-auto">

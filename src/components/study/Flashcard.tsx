@@ -16,7 +16,7 @@ export function Flashcard({ card, flipped, onFlip }: FlashcardProps) {
         type="button"
         onClick={onFlip}
         aria-label={flipped ? '카드 앞면 보기' : '카드 뒤집어 정답 보기'}
-        className="flex min-h-64 w-full flex-col items-center justify-center gap-4 rounded-lg border border-zinc-200 p-10 text-center dark:border-zinc-800"
+        className="flex min-h-64 w-full flex-col items-center justify-center gap-4 rounded-lg border border-zinc-200 bg-white p-10 text-center shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
       >
         <span className="text-3xl font-semibold tracking-tight">{card.word}</span>
 

@@ -30,7 +30,7 @@ function CardForm({
         if (!form.word.trim() || !form.meaning.trim()) return
         onSubmit(form)
       }}
-      className="grid grid-cols-1 gap-3 rounded-lg border border-zinc-200 p-6 dark:border-zinc-800 sm:grid-cols-2"
+      className="grid grid-cols-1 gap-3 rounded-lg border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 sm:grid-cols-2"
     >
       <input
         value={form.word}
@@ -102,16 +102,16 @@ export function CardManager() {
         <button
           type="button"
           onClick={() => setShowAddForm(true)}
-          className="self-start rounded-md border border-zinc-300 px-4 py-2 text-sm font-medium hover:bg-zinc-50 dark:border-zinc-700 dark:hover:bg-zinc-900"
+          className="self-start rounded-md border border-zinc-300 bg-white px-4 py-2 text-sm font-medium hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800"
         >
           + 새 단어 추가
         </button>
       )}
 
-      <ul className="flex flex-col divide-y divide-zinc-200 dark:divide-zinc-800">
+      <ul className="flex flex-col divide-y divide-zinc-200 rounded-lg border border-zinc-200 bg-white px-6 shadow-sm dark:divide-zinc-800 dark:border-zinc-800 dark:bg-zinc-900">
         {cards.map((card: WordCard) =>
           editingId === card.id ? (
-            <li key={card.id} className="py-3 first:pt-0">
+            <li key={card.id} className="py-4">
               <CardForm
                 initial={card}
                 onCancel={() => setEditingId(null)}
@@ -122,7 +122,7 @@ export function CardManager() {
               />
             </li>
           ) : (
-            <li key={card.id} className="flex items-center justify-between gap-3 py-3 first:pt-0">
+            <li key={card.id} className="flex items-center justify-between gap-3 py-3">
               <div>
                 <p className="font-medium">
                   {card.word} <span className="font-normal text-zinc-500 dark:text-zinc-400">- {card.meaning}</span>
@@ -133,7 +133,7 @@ export function CardManager() {
                 <button
                   type="button"
                   onClick={() => setEditingId(card.id)}
-                  className="rounded-md px-3 py-1 text-sm text-zinc-500 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-900"
+                  className="rounded-md px-3 py-1 text-sm text-zinc-500 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800"
                 >
                   수정
                 </button>
