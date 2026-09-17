@@ -27,7 +27,7 @@ export function WeeklyBarChart({ data }: WeeklyBarChartProps) {
               <span className="text-xs text-zinc-400 dark:text-zinc-500">{entry.count || ''}</span>
               <div className="flex h-24 w-full items-end">
                 <div
-                  className="w-full rounded-sm bg-zinc-900 transition-[height] dark:bg-zinc-100"
+                  className="w-full rounded-sm bg-blue-900 transition-[height] dark:bg-blue-400"
                   style={{ height: `${entry.count > 0 ? Math.max(heightPct, 6) : 0}%` }}
                   title={`${entry.date}: ${entry.count}개`}
                 />

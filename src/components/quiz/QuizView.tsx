@@ -75,7 +75,7 @@ export function QuizView() {
         <button
           type="button"
           onClick={startQuiz}
-          className="rounded-md bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+          className="rounded-md bg-yellow-400 px-5 py-2.5 text-sm font-semibold text-blue-950 hover:bg-yellow-300"
         >
           퀴즈 시작하기
         </button>
@@ -108,7 +108,7 @@ export function QuizView() {
         <button
           type="button"
           onClick={startQuiz}
-          className="rounded-md bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+          className="rounded-md bg-yellow-400 px-5 py-2.5 text-sm font-semibold text-blue-950 hover:bg-yellow-300"
         >
           다시 풀기
         </button>
@@ -142,12 +142,12 @@ export function QuizView() {
                 onChange={(e) => setTextAnswer(e.target.value)}
                 disabled={!!feedback}
                 placeholder="빈칸에 들어갈 단어"
-                className="flex-1 rounded-md border border-zinc-300 bg-transparent px-3 py-2 focus:border-zinc-500 focus:outline-none dark:border-zinc-700"
+                className="flex-1 rounded-md border border-zinc-300 bg-transparent px-3 py-2 focus:border-blue-600 focus:outline-none dark:border-zinc-700"
               />
               <button
                 type="submit"
                 disabled={!!feedback}
-                className="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white disabled:opacity-40 dark:bg-white dark:text-zinc-900"
+                className="rounded-md bg-yellow-400 px-4 py-2 text-sm font-semibold text-blue-950 hover:bg-yellow-300 disabled:opacity-40"
               >
                 제출
               </button>
@@ -163,7 +163,7 @@ export function QuizView() {
                   type="button"
                   disabled={!!feedback}
                   onClick={() => submitAnswer(option)}
-                  className="rounded-md border border-zinc-200 px-4 py-2.5 text-left transition-colors hover:bg-zinc-50 disabled:opacity-60 dark:border-zinc-800 dark:hover:bg-zinc-900"
+                  className="rounded-md border border-zinc-200 px-4 py-2.5 text-left transition-colors hover:border-blue-300 hover:bg-blue-50 disabled:opacity-60 dark:border-zinc-800 dark:hover:border-blue-800 dark:hover:bg-blue-950/40"
                 >
                   {i + 1}. {option}
                 </button>
@@ -180,7 +180,7 @@ export function QuizView() {
             <button
               type="button"
               onClick={goNext}
-              className="rounded-md bg-zinc-900 px-3 py-1.5 text-sm text-white dark:bg-white dark:text-zinc-900"
+              className="rounded-md bg-yellow-400 px-3 py-1.5 text-sm font-semibold text-blue-950 hover:bg-yellow-300"
             >
               다음 (Enter)
             </button>

@@ -34,7 +34,7 @@ export function DataIO() {
         <button
           type="button"
           onClick={handleExport}
-          className="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+          className="rounded-md bg-yellow-400 px-4 py-2 text-sm font-semibold text-blue-950 hover:bg-yellow-300"
         >
           내보내기 (Export)
         </button>

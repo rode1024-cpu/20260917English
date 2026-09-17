@@ -21,7 +21,7 @@ const GRADE_BUTTONS: { grade: ReviewGrade; label: string; key: string; className
     grade: 'good',
     label: '3. 보통',
     key: '3',
-    className: 'border-indigo-200 text-indigo-600 hover:bg-indigo-50 dark:border-indigo-900 dark:text-indigo-400 dark:hover:bg-indigo-950',
+    className: 'border-blue-200 text-blue-800 hover:bg-blue-50 dark:border-blue-900 dark:text-blue-300 dark:hover:bg-blue-950',
   },
   {
     grade: 'easy',

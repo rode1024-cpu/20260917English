@@ -19,9 +19,9 @@ export function NavBar({ active, onChange }: NavBarProps) {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <header className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+    <header className="bg-blue-950">
       <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 px-6 py-4">
-        <span className="text-base font-semibold tracking-tight">VocaLoop</span>
+        <span className="text-base font-semibold tracking-tight text-white">VocaLoop</span>
         <nav className="flex flex-1 items-center gap-6 overflow-x-auto">
           {TABS.map((tab) => (
             <button
@@ -30,8 +30,8 @@ export function NavBar({ active, onChange }: NavBarProps) {
               onClick={() => onChange(tab.key)}
               className={`shrink-0 border-b-2 py-1 text-sm transition-colors ${
                 active === tab.key
-                  ? 'border-zinc-900 font-medium text-zinc-900 dark:border-zinc-100 dark:text-zinc-100'
-                  : 'border-transparent text-zinc-400 hover:text-zinc-700 dark:text-zinc-500 dark:hover:text-zinc-300'
+                  ? 'border-yellow-400 font-medium text-white'
+                  : 'border-transparent text-blue-300 hover:text-white'
               }`}
             >
               {tab.label}
@@ -42,7 +42,7 @@ export function NavBar({ active, onChange }: NavBarProps) {
           type="button"
           onClick={toggleTheme}
           aria-label="다크모드 전환"
-          className="shrink-0 rounded-md p-1.5 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-700 dark:text-zinc-500 dark:hover:bg-zinc-900 dark:hover:text-zinc-300"
+          className="shrink-0 rounded-md p-1.5 text-blue-300 hover:bg-blue-900 hover:text-white"
         >
           {theme === 'dark' ? '🌙' : '☀️'}
         </button>

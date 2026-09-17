@@ -22,7 +22,7 @@ export function Flashcard({ card, flipped, onFlip }: FlashcardProps) {
 
         {flipped ? (
           <div className="flex flex-col gap-2">
-            <p className="text-lg text-indigo-600 dark:text-indigo-400">{card.meaning}</p>
+            <p className="text-lg text-blue-800 dark:text-blue-300">{card.meaning}</p>
             <p className="italic text-zinc-500 dark:text-zinc-400">{card.exampleSentence}</p>
             <p className="text-sm text-zinc-400 dark:text-zinc-500">{card.exampleTranslation}</p>
           </div>
